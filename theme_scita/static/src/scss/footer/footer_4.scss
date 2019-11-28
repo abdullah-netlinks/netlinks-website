@@ -1,0 +1,76 @@
+.footer-content {
+	background: #f1f1f1;
+	padding-top: 85px;
+	@media (max-width: 1600px){
+		padding-top: 65px;
+	}
+	@media (max-width: 1366px){
+		padding-top: 50px;
+	}
+	@media (max-width: 767px){
+		padding-top: 35px;
+	}
+	.col-lg-3 {
+		padding-bottom: 85px;
+		@media (max-width: 1600px){
+			padding-bottom: 65px;
+		}
+		@media (max-width: 1366px){
+			padding-bottom: 50px;
+		}
+		@media (max-width: 767px){
+			padding-bottom: 35px;
+		}
+		ul {
+			li {
+				margin-top: 20px;
+				display: block;
+				a {
+					display: inline-block;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+.sct-fot-belt {
+	padding: 25px 0;
+	@media (max-width: 767px){
+		padding: 15px 0;
+	}
+	p {
+		margin-bottom: 0;
+		color: $dark-color;
+		font-size: 15px; 
+	}
+}
+.sct-fot-address {
+	li{
+		position: relative;
+		font-weight: 600;
+		font-size: $font-body;
+		color: fade-out($body-color, 0.5);
+		padding-left: 30px;
+		.fa {
+			position: absolute;
+			left: 0;
+			top: 2px;
+			color: #ababab;
+			font-size: 20px;
+		}
+	}
+}
+.sct-fot-social {
+	.sct-payment-icons {
+		margin-bottom: 25px;
+		h4{
+			margin-bottom: 20px;
+		}
+	}
+	.sct-scocial-icon-footer {
+		h4{
+			margin-top: 0;
+			margin-bottom: 10px;
+		}
+	}
+}

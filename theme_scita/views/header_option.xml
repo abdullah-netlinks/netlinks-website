@@ -1,0 +1,975 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="portal.portal_show_sign_in" model="ir.ui.view">
+        <field eval="False" name="active"/>
+    </record>
+    <template  id="wihslist_in_default" inherit_id="website.layout">
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="after">
+            <t t-if="request.website.viewref('theme_scita.add_to_wishlist').active">
+                <t t-set='wishcount' t-value="len(request.env['product.wishlist'].current())"/>
+                <li class="nav-item o_wsale_my_wish"  id="default_wish_list"  t-att-style="not wishcount and 'display:none;'">
+                    <a href="/shop/wishlist" class="nav-link">
+                        <i class="fa fa-heart"/>
+                        Wishlist <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary"><t t-esc='wishcount'/></sup>
+                    </a>
+                </li>
+            </t>
+        </xpath>
+    </template>
+    <template id="scita_li_added_top_bar" inherit_id="website.layout" name="Show li Added" priority='14'>
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            <li id='sign_in_display' style='display:none'/>
+        </xpath>
+    </template>
+    <template id="scita_portal_show_sign_in" inherit_id="website.layout" name="Show Sign In">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            <li groups="base.group_public" class="nav-item" id='default_sign_in'>
+                <a t-attf-href="/web/login" class="nav-link" >
+                    <b>Sign in</b>
+                </a>
+            </li>
+        </xpath>
+    </template>
+    <!-- Total on hover -->
+    <template id="hover_total">
+        <div id="cart_total" t-if="website_sale_order">
+            <div class="cart-content">
+                <div class="product-desc">
+                    <t t-as="line" t-foreach="website_sale_order.website_order_line">
+                        <div class="pd-row">
+                            <span class="product-img" t-if="line.product_id and line.product_id.product_tmpl_id and line.product_id.product_tmpl_id.image_512">
+                                <a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+                                    <span t-esc="line.product_id.image_512" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-rounded&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                </a>
+                            </span>
+                            <span class="product-img" t-if="line.product_id and line.product_id.product_tmpl_id and not line.product_id.product_tmpl_id.image_512">
+                                <a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+                                    <img src="/web/static/src/img/placeholder.png"/>
+                                </a>
+                            </span>
+                            <div class="product-detail">
+                                <p class="product-name">
+                                    <a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+                                        <t t-esc="line.product_id.name"/>
+                                    </a>
+                                </p>
+                                <p>
+                                    <span class="theme_scita_cart_quantity1" t-esc="int(line.product_uom_qty)"/>x 
+                                    <span t-esc="line.price_unit" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                    <span class="price">
+                                        <a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">Details</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </t>
+                    <div class="total" id="scita_cart">
+                        <div class="row" id="order_total">
+                            <label>Subtotal:</label>
+                            <span>
+                                <span style="white-space: nowrap;" t-esc="website.sale_get_order().amount_total" t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="button-box">
+                        <a class="view-all btn" href="/shop/cart">View all</a>
+                        <a class="proceed btn" href="/shop/checkout">Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template active="False" id="option_header_1" inherit_id="website.layout" name=''>
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[@id='sign_in_display']" position="replace"/>
+        <xpath expr="//div[@id='wrapwrap']//header//nav" position="before">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-9 col-md-12">
+                            <div class="h-left">
+                                <ul class="head-cinfo">
+                                    <li t-if="res_company.phone" t-ignore="true">
+                                        <a t-attf-href="tel:#{res_company.phone}">
+                                            <i class="fa fa-phone"/>
+                                            <span t-field="res_company.phone"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="res_company.email" t-ignore="true">
+                                        <a t-attf-href="mailto:#{res_company.email}">
+                                            <i class="fa fa-envelope-o"/>
+                                            <span t-field="res_company.email"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12">
+                            <div class="h-right">
+                                <ul class="socisl-link">
+                                    <li t-if="website.social_facebook">
+                                        <a t-att-href="website.social_facebook">
+                                            <i class="fa fa-facebook"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_twitter">
+                                        <a t-att-href="website.social_twitter">
+                                            <i class="fa fa-twitter"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_linkedin">
+                                        <a t-att-href="website.social_linkedin">
+                                            <i class="fa fa-linkedin"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_youtube">
+                                        <a t-att-href="website.social_youtube">
+                                            <i class="fa fa-youtube-play"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_instagram">
+                                        <a t-att-href="website.social_instagram">
+                                            <i class="fa  fa-instagram"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='top_menu_collapse']" position="after">
+            <div class="menu_right">
+                <div t-att-class="'h-cart' if request.env.user._is_public() else 'h-cart log_in_user'">
+                    <ul>
+                        <t t-if="request.env.get('product.wishlist') != None and request.website.viewref('theme_scita.add_to_wishlist').active">
+                            <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>
+                            <li id="my_wish" t-att-style="not wishcount and 'display:none;'">
+                                <a class="top-link-checkout" href="/shop/wishlist" title="Wishlist">
+                                    <i class="fa fa-heart"/>
+                                    <span t-attf-class="my_wish_quantity o_animate_blink theme_scita_wish_quantity label label-primary" t-esc="wishcount"/>
+                                </a>
+                            </li>
+                        </t>
+                        <li>
+                            <a class="top-link-checkout" href="/shop/cart" id="my_cart" title="Cart">
+                                <i class="fa fa-shopping-cart"/>
+                                <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                <span class="theme_scita_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"/>
+                            </a>
+                            <ul class="h-cart-inner">
+                                <li>
+                                    <div class="mini-cart-content dropdown-content left-hand block block-cart skip-content skip-content--style" id="header-cart">
+                                        <div class="" t-if="not website_sale_order or not website_sale_order.website_order_line">Your cart is empty!
+                                    </div>
+                                        <div class="" t-if="website_sale_order and website_sale_order.website_order_line">
+                                            <div id="scita_hover_total">
+                                                <t t-call="theme_scita.hover_total"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="configuration">
+                            <a class="top-link-wishlist" href="#" id="user_account" title="My Profile">
+                                <i class="fa fa-user" id="user_account_icon"/>
+                            </a>
+                            <div class="toggle-config o_hidden">
+                                <div class="options">
+                                    <ul class="language-bar js_language_selector" id="lang" t-if="(request.is_frontend_multilang and len(languages) &gt; 1) or editable">
+                                        <label>Language</label>
+                                        <div class="btn-group">
+                                            <button class="btn dropdown-toggle btn-default" data-caret="true" data-toggle="dropdown" type="button">
+                                                 <t t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][1].split('_')[0]"/>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right js_language_selector" role="menu">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                                                       class="dropdown-item js_change_lang"
+                                                       t-att-data-url_code="lg[1]">
+                                                        <t t-esc="lg[1].split('_')[0]"/>
+
+                                                    </a>
+                                                </t>
+                                                <li groups="website.group_website_publisher">
+                                                    <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+                                                    <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">Add...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                    <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+                                    <div class="currency_bar" t-if="len(website_sale_pricelists) &gt; 1">
+                                        <label>Currency</label>
+                                        <t t-call="website_sale.pricelist_list"/>
+                                    </div>
+                                </div>
+                                <div class="personal-info">
+                                    <ul>
+                                        <t t-if="website.user_id != user_id">
+                                            <li>Welcome, 
+                                                
+                                                <b>
+                                                    <t t-esc="user_id.name"/></b>
+                                            </li>
+                                            <li>
+                                                <a href="/my/home">My account</a>
+                                            </li>
+                                            <li>
+                                                <a role="menuitem" t-attf-href="/web/session/logout?redirect=/">Logout</a>
+                                            </li>
+                                        </t>
+                                        <t t-if="website.user_id == user_id">
+                                            <li id='sign_in_display' class='o_hidden'>
+                                                <a href="/web/login">Login</a>
+                                            </li>
+                                            <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                                                <li>
+                                                    <a href="/web/signup">Register</a>
+                                                </li>
+                                            </t>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hm-search">
+                                <a class="static-search" href="#">
+                                    <i class="fa fa-search" id="serch_bar_icon" title="Search"/>
+                                </a>
+                                <div class="header-search o_hidden">
+                                    <span id="close_search_bar">X</span>
+                                    <t t-call="website_sale.website_sale_products_search_box">
+                                        <t t-set="action" t-value="'/shop'"/>
+                                        <t t-if="attrib_values">
+                                            <t t-foreach="attrib_values" t-as="a">
+                                                <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+            </a>
+        </xpath>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+    </template>
+    <!-- <template active="False" id="option_header_cart" inherit_id="website_sale.header">
+        <xpath expr="//li[last()]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+    </template> -->
+    <template active="False" id="option_header_2" inherit_id="website.layout" name=''>
+        <xpath expr="//ul[@id='top_menu']/li[@id='sign_in_display']" position="replace"/>
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//div[@id='wrapwrap']//header//nav" position="before">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6 sct_left_side">
+                            <div class="h-left">
+                                <ul class="head-cinfo">
+                                    <li t-if="res_company.phone" t-ignore="true">
+                                        <a t-attf-href="tel:#{res_company.phone}">
+                                            <i class="fa fa-phone"/>
+                                            <span t-field="res_company.phone"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="res_company.email" t-ignore="true">
+                                        <a t-attf-href="mailto:#{res_company.email}">
+                                            <i class="fa fa-envelope-o"/>
+                                            <span t-field="res_company.email"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 sct-top-right-side">
+                            <div class="hm-search_op_2">
+                                <div class="header-search_op_2">
+                                    <t t-call="website_sale.website_sale_products_search_box">
+                                        <t t-set="action" t-value="'/shop'"/>
+                                        <t t-if="attrib_values">
+                                            <t t-foreach="attrib_values" t-as="a">
+                                                <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                            <div class="h-right">
+                                <ul class="socisl-link">
+                                    <li t-if="website.social_facebook">
+                                        <a t-att-href="website.social_facebook">
+                                            <i class="fa fa-facebook"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_twitter">
+                                        <a t-att-href="website.social_twitter">
+                                            <i class="fa fa-twitter"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_linkedin">
+                                        <a t-att-href="website.social_linkedin">
+                                            <i class="fa fa-linkedin"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_youtube">
+                                        <a t-att-href="website.social_youtube">
+                                            <i class="fa fa-youtube-play"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="website.social_instagram">
+                                        <a t-att-href="website.social_instagram">
+                                            <i class="fa fa-instagram"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='top_menu_collapse']" position="after">
+            <div class="menu_right">
+                <div t-att-class="'h-cart' if request.env.user._is_public() else 'h-cart log_in_user'">
+                    <ul>
+                        <t t-if="request.env.get('product.wishlist') != None and request.website.viewref('theme_scita.add_to_wishlist').active">
+                            <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>
+                            <li id="my_wish" t-att-style="not wishcount and 'display:none;'" class='nav-item o_wsale_my_wish'>
+                                <a class="top-link-checkout" href="/shop/wishlist" title="Wishlist">
+                                    <i class="fa fa-heart"/>
+                                    <span t-attf-class="my_wish_quantity o_animate_blink theme_scita_wish_quantity label label-primary" t-esc="wishcount"/>
+                                </a>
+                            </li>
+                        </t>
+                        <li>
+                            <a class="top-link-checkout" href="/shop/cart" id="my_cart" title="Cart">
+                                <i class="fa fa-shopping-cart"/>
+                                <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                <span class="theme_scita_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"/>
+                            </a>
+                            <ul class="h-cart-inner">
+                                <li>
+                                    <div class="mini-cart-content dropdown-content left-hand block block-cart skip-content skip-content--style" id="header-cart">
+                                        <div class="" t-if="not website_sale_order or not website_sale_order.website_order_line">Your cart is empty!
+                                    </div>
+                                        <div class="" t-if="website_sale_order and website_sale_order.website_order_line">
+                                            <div id="scita_hover_total">
+                                                <t t-call="theme_scita.hover_total"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="configuration">
+                            <a class="top-link-wishlist" href="javascript:void(0);" id="user_account" title="My Profile">
+                                <i class="fa fa-user" id="user_account_icon"/>
+                            </a>
+                            <div class="toggle-config o_hidden">
+                                <div class="options">
+                                    <ul class="language-bar js_language_selector" id="lang" t-if="(request.is_frontend_multilang and len(languages) &gt; 1) or editable">
+                                        <label>Language</label>
+                                        <div class="btn-group">
+                                            <button class="btn dropdown-toggle btn-default" data-caret="true" data-toggle="dropdown" type="button">
+                                                 <span t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][1]"/>
+
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right js_language_selector" role="menu">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                                                       class="dropdown-item js_change_lang"
+                                                       t-att-data-url_code="lg[1]">
+                                                        <t t-esc="lg[1]"/>
+                                                    </a>
+                                                </t>
+                                                <li groups="website.group_website_publisher">
+                                                    <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+                                                    <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">Add...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                    <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+                                    <div class="currency_bar" t-if="len(website_sale_pricelists) &gt; 1">
+                                        <label>Currency</label>
+                                        <t t-call="website_sale.pricelist_list"/>
+                                    </div>
+                                </div>
+                                <div class="personal-info">
+                                    <ul>
+                                        <t t-if="website.user_id != user_id">
+                                            <li>Welcome, 
+                                                
+                                                <b>
+                                                    <t t-esc="user_id.name"/></b>
+                                            </li>
+                                            <li>
+                                                <a href="/my/home">My account</a>
+                                            </li>
+                                            <li>
+                                                <a role="menuitem" t-attf-href="/web/session/logout?redirect=/">Logout</a>
+                                            </li>
+                                        </t>
+                                        <t t-if="website.user_id == user_id">
+                                            <li id='sign_in_display' class='o_hidden'>
+                                                <a href="/web/login">Login</a>
+                                            </li>
+                                            <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                                                <li>
+                                                    <a href="/web/signup">Register</a>
+                                                </li>
+                                            </t>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+            </a>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+    </template>
+    <template active="False" id="option_header_3" inherit_id="website.layout" name=''>
+        <xpath expr="//header//ul[@id='top_menu']//li[hasclass('nav-item','o_wsale_my_wish')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[@id='sign_in_display']" position="replace"/>
+        <xpath expr="//div[@id='top_menu_collapse']" position="after">
+            <div class="menu_right">
+                <div t-att-class="'h-cart' if request.env.user._is_public() else 'h-cart log_in_user'">
+                    <ul>
+                        <li class="configuration">
+                            <a class="top-link-wishlist" href="javascript:void(0);" id="user_account" title="My Profile">
+                                <i class="fa fa-user" id="user_account_icon"/>
+                            </a>
+                            <div class="toggle-config o_hidden">
+                                <div class="options">
+                                    <ul class="language-bar js_language_selector" id="lang" t-if="(request.is_frontend_multilang and len(languages) &gt; 1) or editable">
+                                        <label>Language</label>
+                                        <div class="btn-group">
+                                            <button class="btn dropdown-toggle btn-default" data-caret="true" data-toggle="dropdown" type="button">
+                                                 <span t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][1]"/>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right js_language_selector" role="menu">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                                                       class="dropdown-item js_change_lang"
+                                                       t-att-data-url_code="lg[1]">
+                                                        <t t-esc="lg[1]"/>
+                                                    </a>
+                                                </t>
+                                                <li groups="website.group_website_publisher">
+                                                    <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+                                                    <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">Add...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                    <t t-set="website_sale_pricelists" t-value="website.get_pricelist_available(show_visible=True)"/>
+                                    <div class="currency_bar" t-if="len(website_sale_pricelists) &gt; 1">
+                                        <label>Currency</label>
+                                        <t t-call="website_sale.pricelist_list"/>
+                                    </div>
+                                </div>
+                                <div class="personal-info">
+                                    <ul>
+                                        <t t-if="website.user_id != user_id">
+                                            <li>Welcome, 
+                                                
+                                                <b>
+                                                    <t t-esc="user_id.name"/></b>
+                                            </li>
+                                            <li>
+                                                <a href="/my/home">My account</a>
+                                            </li>
+                                            <li>
+                                                <a role="menuitem" t-attf-href="/web/session/logout?redirect=/">Logout</a>
+                                            </li>
+                                        </t>
+                                        <t t-if="website.user_id == user_id">
+                                            <li id='sign_in_display' class='o_hidden'>
+                                                <a href="/web/login">Login</a>
+                                            </li>
+                                            <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                                                <li>
+                                                    <a href="/web/signup">Register</a>
+                                                </li>
+                                            </t>
+                                        </t>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="hm-search">
+                                <a class="static-search" href="#">
+                                    <i class="fa fa-search" id="serch_bar_icon" title="Search"/>
+                                </a>
+                                <div class="header-search o_hidden">
+                                    <span id="close_search_bar">X</span>
+                                    <t t-call="website_sale.website_sale_products_search_box">
+                                        <t t-set="action" t-value="'/shop'"/>
+                                        <t t-if="attrib_values">
+                                            <t t-foreach="attrib_values" t-as="a">
+                                                <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                            </t>
+                                        </t>
+                                    </t>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="top-link-checkout" href="/shop/cart" id="my_cart" title="Cart">
+                                <i class="fa fa-shopping-cart"/>
+                                <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                <span class="theme_scita_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"/>
+                            </a>
+                            <ul class="h-cart-inner">
+                                <li>
+                                    <div class="mini-cart-content dropdown-content left-hand block block-cart skip-content skip-content--style" id="header-cart">
+                                        <div class="" t-if="not website_sale_order or not website_sale_order.website_order_line">Your cart is empty!
+                                    </div>
+                                        <div class="" t-if="website_sale_order and website_sale_order.website_order_line">
+                                            <div id="scita_hover_total">
+                                                <t t-call="theme_scita.hover_total"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <t t-if="request.env.get('product.wishlist') != None and request.website.viewref('theme_scita.add_to_wishlist').active">
+                            <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>
+                            <li id="my_wish" t-att-style="not wishcount and 'display:none;'" class='nav-item o_wsale_my_wish'>
+                                <a class="top-link-checkout" href="/shop/wishlist" title="Wishlist">
+                                    <i class="fa fa-heart"/>
+                                    <span t-attf-class="my_wish_quantity o_animate_blink theme_scita_wish_quantity label label-primary" t-esc="wishcount"/>
+                                </a>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+            </a>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+    </template>
+    <template active="False" id="pricelist_add_icon" inherit_id="website_sale.pricelist_list">
+        <xpath expr="//div/a[hasclass('dropdown-toggle','btn','btn-secondary')]/t" position="replace">
+            <i class="fa fa-money"/>
+            <span>
+                <t t-esc="curr_pl and curr_pl.name or ' - '"/>
+            </span>
+        </xpath>
+    </template>
+    <template active="False" id="option_header_4" inherit_id="website.layout" name=''>
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[@id='sign_in_display']" position="replace"/>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace"/>
+        <xpath expr="//div[@id='wrapwrap']//header//nav" position="before">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <div class="h-left">
+                                <ul class="head-cinfo">
+                                    <li t-if="res_company.email" t-ignore="true">
+                                        <a t-attf-href="mailto:#{res_company.email}">
+                                            <i class="fa fa-envelope-o"/>
+                                            <span t-field="res_company.email"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="pull-right sct-top-right">
+                                <ul class="nav navbar-nav account-nav">
+                                    <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                    <li>
+                                        <a href="/my/home">My Account</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Support</a>
+                                    </li>
+                                </ul>
+                                <ul class="nav navbar-nav login-nav">
+                                    <li t-if="website.user_id != user_id">
+                                        <span>
+                                            <a role="menuitem" t-attf-href="/web/session/logout?redirect=/">Logout</a>
+                                        </span>
+                                    </li>
+                                    <li t-if="website.user_id == user_id" id='sign_in_display' class='o_hidden'>
+                                        <a href="/web/login">Login</a>
+                                    </li>
+                                    <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                                        <li class="last" t-if="website.user_id == user_id">
+                                            <a href="/web/signup">Register</a>
+                                        </li>
+                                    </t>
+                                </ul>
+                                <ul class="list-inline pull-right sct_language_selector hidden-xs" id="lang" t-if="(request.is_frontend_multilang and len(languages) &gt; 1) or editable">
+                                    <li>
+                                        <div class="btn-group">
+                                            <button class="dropdown-toggle" data-caret="true" data-toggle="dropdown" type="button">
+                                                <i class="fa fa-globe fa-1x"/>
+                                                <t t-as="lgs" t-foreach="languages">
+                                                    <t t-if="website and lgs[0] == lang">
+                                                        <span>
+                                                            <t t-esc="lgs[1]"/>
+                                                        </span>
+                                                    </t>
+                                                </t>
+                                            </button>
+                                            
+                                            <ul class="dropdown-menu dropdown-menu-right js_language_selector" role="menu">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                                                       class="dropdown-item js_change_lang"
+                                                       t-att-data-url_code="lg[1]">
+                                                        <t t-esc="lg[1]"/>
+                                                    </a>
+                                                </t>
+                                                <li groups="website.group_website_publisher">
+                                                    <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+                                                    <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">Add...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="hprice-list">
+                                    <t t-call="website_sale.pricelist_list"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-sm-4 logo">
+                            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 middle_search">
+                            <div class="header-search">
+                                <t t-call="website_sale.website_sale_products_search_box">
+                                    <t t-set="action" t-value="'/shop'"/>
+                                    <t t-if="attrib_values">
+                                        <t t-foreach="attrib_values" t-as="a">
+                                            <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                        </t>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 right_info">
+                            <div t-att-class="'h-cart' if request.env.user._is_public() else 'h-cart log_in_user'">
+                                <ul class="head-middle-info">
+                                    <li class="sct-mobile-none" t-if="res_company.phone" t-ignore="true">
+                                        <a t-attf-href="tel:#{res_company.phone}">
+                                            <i class="fa fa-phone"/>
+                                            <span t-field="res_company.phone"/>
+                                        </a>
+                                    </li>
+                                    <li class="mobile-search">
+                                        <div class="hm-search">
+                                            <a class="static-search" href="#">
+                                                <i class="fa fa-search" id="serch_bar_icon" title="Search"/>
+                                            </a>
+                                            <div class="header-search o_hidden">
+                                                <span id="close_search_bar">X</span>
+                                                <t t-call="website_sale.website_sale_products_search_box">
+                                                    <t t-set="action" t-value="'/shop'"/>
+                                                    <t t-if="attrib_values">
+                                                        <t t-foreach="attrib_values" t-as="a">
+                                                            <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="top-link-checkout" href="/shop/cart" id="my_cart" title="Cart">
+                                            <i class="fa fa-shopping-cart"/>
+                                            <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                            <span class="theme_scita_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"/>
+                                        </a>
+                                        <ul class="h-cart-inner">
+                                            <li>
+                                                <div class="mini-cart-content dropdown-content left-hand block block-cart skip-content skip-content--style" id="header-cart">
+                                                    <div class="" t-if="not website_sale_order or not website_sale_order.website_order_line">Your cart is empty!
+                                                </div>
+                                                    <div class="" t-if="website_sale_order and website_sale_order.website_order_line">
+                                                        <div id="scita_hover_total">
+                                                            <t t-call="theme_scita.hover_total"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <t t-if="request.env.get('product.wishlist') != None and request.website.viewref('theme_scita.add_to_wishlist').active">
+                                        <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>
+                                        <li id="my_wish" t-att-style="not wishcount and 'display:none;'">
+                                            <a class="top-link-checkout" href="/shop/wishlist" title="Wishlist">
+                                                <i class="fa fa-heart"/>
+                                                <span t-attf-class="my_wish_quantity o_animate_blink theme_scita_wish_quantity label label-primary" t-esc="wishcount"/>
+                                            </a>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+        <xpath expr="//header//ul[@id='top_menu']" position="attributes">
+            <attribute name="class">nav navbar-nav text-right</attribute>
+        </xpath>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+    </template>
+    <template active="False" id="option_header_5" inherit_id="website.layout" name=''>
+       <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[@id='sign_in_display']" position="replace"/>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace"/>
+        <xpath expr="//div[@id='wrapwrap']//header//nav" position="before">
+            <div class="top-header">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="h-left">
+                                <ul class="head-cinfo">
+                                    <li t-if="res_company.email" t-ignore="true">
+                                        <a t-attf-href="mailto:#{res_company.email}">
+                                            <i class="fa fa-envelope-o"/>
+                                            <span t-field="res_company.email"/>
+                                        </a>
+                                    </li>
+                                    <li t-if="res_company.phone" t-ignore="true">
+                                        <a t-attf-href="tel:#{res_company.phone}">
+                                            <i class="fa fa-phone"/>
+                                            <span t-field="res_company.phone"/>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="pull-right sct-top-right">
+                                <ul class="nav navbar-nav login-nav">
+                                    <li t-if="website.user_id != user_id">
+                                        <span>
+                                            <a role="menuitem" t-attf-href="/web/session/logout?redirect=/">Logout</a>
+                                        </span>
+                                    </li>
+                                    <li t-if="website.user_id == user_id" id='sign_in_display' class='o_hidden'>
+                                        <a href="/web/login">Login</a>
+                                    </li>
+                                    <t t-if="request.env['res.users']._get_signup_invitation_scope() == 'b2c'">
+                                        <li class="last" t-if="website.user_id == user_id">
+                                            <a href="/web/signup">Register</a>
+                                        </li>
+                                    </t>
+                                </ul>
+                                <ul class="language-bar js_language_selector" id="lang" t-if="(request.is_frontend_multilang and len(languages) &gt; 1) or editable">
+                                        <div class="btn-group">
+                                            <button class="btn dropdown-toggle btn-default" data-caret="true" data-toggle="dropdown" type="button">
+                                                 <!-- <span t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][2].split('/').pop()"/> -->
+                                                 <span t-esc="list(filter(lambda lg : lg[0] == lang, languages))[0][1]"/>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right js_language_selector" role="menu">
+                                                <t t-foreach="languages" t-as="lg">
+                                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code=lg[0])"
+                                                       class="dropdown-item js_change_lang"
+                                                       t-att-data-url_code="lg[1]">
+                                                        <!-- <t t-esc="lg[2].split('/').pop()"/> -->
+                                                        <t t-esc="lg[1]"/>
+                                                    </a>
+                                                </t>
+                                                <li groups="website.group_website_publisher">
+                                                    <t t-set="url_return" t-value="url_for('', '[lang]') + '?' + keep_query()"/>
+                                                    <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id}&amp;url_return=#{url_return}">Add...</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                <div class="hprice-list">
+                                    <t t-call="website_sale.pricelist_list"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 col-sm-4 left_search">
+                            <div class="header-search">
+                                <t t-call="website_sale.website_sale_products_search_box">
+                                    <t t-set="action" t-value="'/shop'"/>
+                                    <t t-if="attrib_values">
+                                        <t t-foreach="attrib_values" t-as="a">
+                                            <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                        </t>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 logo">
+                            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-4 right_info">
+                            <div t-att-class="'h-cart' if request.env.user._is_public() else 'h-cart log_in_user'">
+                                <ul class="head-middle-info">
+                                    <li class="mobile-search">
+                                        <div class="hm-search">
+                                            <a class="static-search" href="#">
+                                                <i class="fa fa-search" id="serch_bar_icon" title="Search"/>
+                                            </a>
+                                            <div class="header-search o_hidden">
+                                                <span id="close_search_bar">X</span>
+                                                <t t-call="website_sale.website_sale_products_search_box">
+                                                    <t t-set="action" t-value="'/shop'"/>
+                                                    <t t-if="attrib_values">
+                                                        <t t-foreach="attrib_values" t-as="a">
+                                                            <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <t t-if="request.env.get('product.wishlist') != None and request.website.viewref('theme_scita.add_to_wishlist').active">
+                                        <t t-set="wishcount" t-value="len(request.env['product.wishlist'].current())"/>
+                                        <li id="my_wish" t-att-style="not wishcount and 'display:none;'">
+                                            <a class="top-link-checkout" href="/shop/wishlist" title="Wishlist">
+                                                <i class="fa fa-heart"/>
+                                                <span t-attf-class="my_wish_quantity o_animate_blink theme_scita_wish_quantity label label-primary" t-esc="wishcount"/>
+                                            </a>
+                                        </li>
+                                    </t>
+                                    <li>
+                                        <a class="top-link-checkout" href="/shop/cart" id="my_cart" title="Cart">
+                                            <i class="fa fa-shopping-cart"/>
+                                            <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                                            <span class="theme_scita_cart_quantity" t-esc="website_sale_order and website_sale_order.cart_quantity or 0"/>
+                                        </a>
+                                        <ul class="h-cart-inner">
+                                            <li>
+                                                <div class="mini-cart-content dropdown-content left-hand block block-cart skip-content skip-content--style" id="header-cart">
+                                                    <div class="" t-if="not website_sale_order or not website_sale_order.website_order_line">Your cart is empty!
+                                                </div>
+                                                    <div class="" t-if="website_sale_order and website_sale_order.website_order_line">
+                                                        <div id="scita_hover_total">
+                                                            <t t-call="theme_scita.hover_total"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+        <xpath expr="//header//ul[@id='top_menu']" position="attributes">
+            <attribute name="class">nav navbar-nav text-right</attribute>
+        </xpath>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+        
+    </template>
+    <template active="False" id="option_service_header_1" inherit_id="website.layout" name=''>
+        <xpath expr="//header//ul[@id='top_menu']/li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="attributes">
+            <attribute name="style">display:none</attribute>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a class="navbar-brand" href="/" t-if="website" t-field="website.name">My Website
+            </a>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('divider')][last()]" position="replace"/>
+        <xpath expr="//header" position="attributes">
+            <attribute name="t-attf-class" add="#{'sct_header_disp'}" separator=" "/>
+        </xpath>
+        <xpath expr="//ul[@id='top_menu']/li[hasclass('dropdown')]" position="replace"/>
+    </template>
+    <template id="scita_header_sign_in" inherit_id="website.layout" name='scita hedaer sign in'>
+        <xpath expr="//li[@id='sign_in_display']" position="attributes">
+            <attribute name='class'></attribute>
+        </xpath>
+    </template>
+    
+    <template  id="search_btn_primary_class_remove" inherit_id="website.website_search_box">
+        <xpath expr="//div[hasclass('input-group-append')]//button" position="attributes">
+            <attribute name='class'>btn oe_search_button</attribute>
+        </xpath>
+    </template>
+    <template id="scita_show_logo" inherit_id="website.layout" name="Show Logo">
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a class="navbar-brand logo" href="/">
+                <span role="img" t-att-aria-label="'Logo of %s' % res_company.name" t-att-title="res_company.name" t-field="website.header_logo" t-options="{'widget': 'image'}"/>
+            </a>
+        </xpath>
+    </template>
+
+</odoo>

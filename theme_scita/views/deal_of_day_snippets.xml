@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--  Retail Offer Snippet -->
+    <template id="retial_deal_of_day_banner_snippet_1" name="Deal of the Day 1">
+        <section class="retial_deal_of_day_banner_snippet_1">
+            <div class='container'>
+                <div class="row">
+                    <div class='col-md-12 sct_promo_banner'>
+                        <section>
+                            <div class="sct-left-side">
+                                <img src="/theme_scita/static/src/img/retail/deal-main-banner.png" class="img img-fluid mx-auto" alt="For Men Offer"/>
+                                <div class='deal_content'>
+                                    <div class='sct_title'>
+                                        <h2 class='title_banner'>Deals of the day</h2>
+                                    </div>
+                                    <div class='sct_sub_title'>
+                                        <p class='sub_title_banner'>Hurry Up! Offer end in</p>
+                                    </div>
+                                    <div class="timer_counter_div"></div>
+                                    <div class='sct_deal_btn'>
+                                        <a href="/contactus" class="btn">All Products <span class="ti-arrow-right"></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <div class="sct_right_img">
+                            <div class="offer-img">
+                                <a href="/shop">
+                                    <img src="/theme_scita/static/src/img/retail/deal-offer-1.jpg" class="img img-fluid mx-auto" alt="For Men Offer"/>
+                                </a>
+                                <a href="/shop">
+                                    <img src="/theme_scita/static/src/img/retail/deal-offer-2.png" class="img img-fluid mx-auto" alt="For Offer"/>
+                                </a>
+                                <a href="/shop">
+                                    <img src="/theme_scita/static/src/img/retail/deal-offer-3.png" class="img img-fluid mx-auto" alt="For Women Offer"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <!-- Fashion deal of the day -->
+    <template id="fashion_deal_of_day_banner_snippet_1" name="Deal of the Day 2">
+        <section class="fashion_deal_of_day_banner_snippet_1" style="background-image: url(/theme_scita/static/src/img/fashion/fashion-deal-of-day.jpg);">
+            <div class="container">
+                <div class='row'>
+                    <div class="col-md-12">
+                        <div class='sct_text_content'>
+                            <h2 class="sct_title">Exclusive Deals End in</h2>
+                            <p class='sct_simple_text'>
+                                Discover the best selling products of T90 stores. All the products are listed weekly in store, helping customers capture products are best sellers.
+                            </p>
+                        </div>
+                        <div class="timer_counter_div"></div>
+                        <div class='sct_deal_btn'>
+                            <a href="/shop" class="btn">SHOP NOW <span class="ti-arrow-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template id="deal_of_day_banner_2" name="Deal of the Day 3">
+        <section class="deal_of_day_banner_2">
+            <div class="container">
+                <div class='row'>
+                	<div class="col-md-6 sct_img_box">
+                		<img src="/theme_scita/static/src/img/shues.png" class="img img-fluid" alt="For Men Offer"/>
+                	</div>
+                    <div class="col-md-6 sct_content_box">
+                    	<div class='sct_base_class'>
+	                        <div class='sct_inner_text_content'>
+	                        	<img src="/theme_scita/static/src/img/shues.png" class="img img-fluid" alt="offer img"/>
+	                            <h3 class="sct_text_title">Limited Offer Remaining</h3>
+	                        	<div class="timer_counter_div"></div>
+	                        </div>
+	                        <div class='sct_text_content'>
+	                            <h2 class="sct_title">Deal of the week</h2>
+	                            <p class='sct_simple_text'>Adidas performance trainers</p>
+	                        	<p class='sct_price_black'>$200</p> <p class='sct_price_red'> $100</p>
+	                        </div>
+
+	                        <div class='sct_deal_btn'>
+	                            <a href="/shop" class="btn btn-primary scita_cstm_btn ">Shop This Now</a>
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+     <!-- Fashion deal of the day -->
+    <template id="deal_of_day_banner_3" name="Deal of the Day 4">
+        <section class="deal_of_day_banner_3 oe_img_bg" style="background-image: url(/theme_scita/static/src/img/deal-bg-light.jpg);">
+            <div class="container">
+                <div class='row'>
+                    <div class="col-lg-6 col-md-8 sct_text_left">
+                    	<div class='sct_base_class'>
+	                        <div class='sct_text_content'>
+	                            <h2 class="sct_title"><span class='sct_per'>40%</span><span class='text'>off</span></h2>
+	                            <p class='sct_simple_text'>
+	                                Discover the best selling products of T90 stores. All the products are listed weekly in store, helping customers capture products are best sellers.
+	                            </p>
+	                        </div>
+	                        <div class="timer_counter_div"></div>
+	                        <div class='sct_deal_btn'>
+	                            <a href="/shop" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+	                        </div>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

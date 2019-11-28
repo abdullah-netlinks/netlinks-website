@@ -1,0 +1,131 @@
+.footer-content{
+	background: #ededed;
+	@media (max-width: 991px){
+		padding-bottom: 40px;
+	}
+	.col-lg-3 {
+		padding-top: 70px;
+		@media (max-width: 1366px){
+			padding-top: 60px;
+		}
+		@media (max-width: 1179px){
+			padding-top: 40px;
+		}
+		@media (max-width: 767px){
+			padding-top: 30px;
+		}
+		ul {
+			li {
+				a {
+					display: inline-block;
+				}
+				+ li {
+					a {
+						margin-top: 20px;
+					}
+				}
+			}
+		}
+	}
+	.sct-fot-address {
+		background: #c3ae9c;
+		padding: 38px 40px;
+		@media (max-width: 1366px){
+			padding: 30px 20px;
+		}
+		ul {
+			padding: 50px 0;
+			@media (max-width: 1366px){
+				padding: 30px 0;
+			}
+			li {
+				position: relative;
+				color: $body-color;
+				font-size: $fot-label;
+				padding-left: 30px;
+				.fa {
+					position: absolute;
+					left: 0;
+					top: 2px;
+					font-size: 20px;
+					color: #eee8e3; 
+				}
+				+ li {
+					margin-top: 15px;
+				}
+			}
+		}
+		.sct-scocial-icon-footer {
+			a {
+				background: #eee8e3;
+				color: #c3ae9c;
+				&:hover{
+					background: $dark-color;
+				}
+			}
+		}
+	}
+	.sct-fot-about {
+		p {
+			color: fade-out($body-color, 0.5);
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+	}
+	.sct-fot-about, .sct-service-link {
+		padding-left: 4%;
+		@media (max-width: 767px){
+			padding-left: 15px;
+		}
+	}
+	.sct-service-link {
+		@media (min-width: 768px) and (max-width: 991px){
+			padding-left: 0;
+		}
+	}
+	h4 {
+		margin-bottom: 25px;
+	}
+}
+.sct-fot-belt {
+	.col-sm-12 {
+		padding: 10px 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.sct-payment-icons {
+		@media (max-width: 767px){
+			width: 100%;
+			text-align: center;
+		}
+		span {
+			display: inline-block;
+			vertical-align: top;
+			width: 40px;
+			margin-right: 5px;
+
+			&:last-child {
+				margin-right:0;
+			}
+		}
+	}
+	.sct-copyrig {
+		color: fade-out($body-color, 0.5);
+		@media (max-width: 767px){
+			-webkit-box-ordinal-group: 2;
+			-ms-flex-order: 1;
+			order: 1;
+			width: 100%;
+			text-align: center;
+		}
+	}
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <!-- Website product paging -->
+    <menuitem id="scita_menu_slider_config" name="Theme Scita Configuration" parent="website.menu_website_configuration" sequence="101"/>
+        <record id="scita_list_view_product_per_page" model="ir.ui.view">
+            <field name="name">Product Per Page List View</field>
+            <field name="model">product.per.page</field>
+            <field name="arch" type="xml">
+                <tree string="Website Product Pagination" create="false" delete="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="scita_form_view_product_per_page" model="ir.ui.view">
+            <field name="name">Product Per Page Form View</field>
+            <field name="model">product.per.page</field>
+            <field name="arch" type="xml">
+                <form string="Website Product Pagination" create="false" delete="false">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="no_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="scita_form_view_product_per_page_no" model="ir.ui.view">
+            <field name="name">Product Per Page No Form View</field>
+            <field name="model">product.per.page.no</field>
+            <field name="arch" type="xml">
+                <form string="Product Per Page No">
+                    <group>
+                        <field name="name"/>
+                        <field name="set_default_check"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="scita_list_view_product_per_page_no" model="ir.ui.view">
+            <field name="name">Product Per Page No List View</field>
+            <field name="model">product.per.page.no</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="set_default_check"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="action_scita_product_per_page" model="ir.actions.act_window">
+            <field name="name">Website Product Pagination</field>
+            <field name="res_model">product.per.page</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'search_default_my_websites':1}</field>
+        </record>
+
+        <menuitem name="Website Product Paging"
+                  id="view_scita_res_config_ppp"
+                  parent="theme_scita.scita_menu_slider_config"
+                  sequence="3"
+                  action="action_scita_product_per_page"/>
+    <record id="biztech_form_view_for_biz_product_images" model="ir.ui.view">
+        <field name="name">scita.product.images.form</field>
+        <field name="model">scita.product.images</field>
+        <field name="arch" type="xml">
+            <form string="Multiple Image">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="alt"/>
+                        <field name="attach_type" widget="radio"/>
+                        <field attrs="{'invisible': [('attach_type', '=', 'video')]}" class="oe_avatar" height="64" name="image" options="{&quot;preview_image&quot;:&quot;image_medium&quot;}" widget="image" width="64"/>
+                        <field attrs="{'invisible': [('attach_type', '=', 'image')]}" name="video_type"/>
+                    </group>
+                    <group col="4">
+                        <field attrs="{'invisible': ['|', ('attach_type', '=', 'image'), ('video_type', '=', 'youtube')]}" class="oe_avatar" height="64" name="cover_image" options="{&quot;preview_image&quot;:&quot;image_medium&quot;}" widget="image" width="64"/>
+                    </group>
+                    <group>
+                        <field attrs="{'invisible': ['|', ('attach_type', '=', 'image'), ('video_type', '=', 'html5video')]}" name="video_id"/>
+                        <field attrs="{'invisible': ['|', ('attach_type', '=', 'image'), ('video_type', 'in', ('youtube', 'vimeo'))]}" name="video_ogv"/>
+                        <field attrs="{'invisible': ['|', ('attach_type', '=', 'image'), ('video_type', 'in', ('youtube', 'vimeo'))]}" name="video_webm"/>
+                        <field attrs="{'invisible': ['|', ('attach_type', '=', 'image'), ('video_type', 'in', ('youtube', 'vimeo'))]}" name="video_mp4"/>
+                        <field name="sequence"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="biztech_list_view_for_biz_product_images" model="ir.ui.view">
+        <field name="name">scita.product.images.tree</field>
+        <field name="model">scita.product.images</field>
+        <field name="arch" type="xml">
+            <tree name="Multiple Image">
+                <field name="name"/>
+                <field name="alt"/>
+                <field name="attach_type"/>
+                <field attrs="{'invisible': [('attach_type', '=', 'video')]}" height="64px" name="image" options="{&quot;preview_image&quot;:&quot;image_medium&quot;}" widget="image" width="64"/>
+                <field attrs="{'invisible': [('attach_type', '=', 'image')]}" name="video_type"/>
+                <field attrs="{'invisible': [('attach_type', '=', 'image')]}" name="video_id"/>
+                <field name="sequence"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Product Form View Inherited for multi images -->
+    <record id="scita_view_product_template_form_multiple_image" model="ir.ui.view">
+        <field name="name">scita.product.template.form.view.inherited</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <div>
+                    <field name="multi_image"/>
+                    <label for="multi_image"/>
+                </div>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page attrs="{'invisible':[('multi_image','!=',True)]}" name="product multi image" string="Product Multiple Images">
+                    <field context="{'default_product_id': id, 'tree_view_ref':'theme_scita.biztech_list_view_for_biz_product_images', 'form_view_ref':'theme_scita.biztech_form_view_for_biz_product_images'}" name="biz_images" nolabel="1"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- client slider  -->
+    <record id="scita_view_res_partner_form_inherit" model="ir.ui.view">
+        <field name="name">scita.view.res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="website" position="after">
+                <field name="add_to_slider"/>
+            </field>
+        </field>
+    </record>
+</odoo>

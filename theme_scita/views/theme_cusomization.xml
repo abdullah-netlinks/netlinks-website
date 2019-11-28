@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id='sct_theme_customizer_btn_hide' inherit_id='website.user_navbar'>
+        <xpath expr='//a[@id="theme_customize"]' position='replace'>
+        </xpath>
+        <xpath expr='//nav[@id="oe_main_menu_navbar"]' position='inside'>
+            <a role="menuitem" href="#" data-action="customize_theme" id="theme_customize">Customize Theme</a>
+        </xpath>
+    </template>
+    <template id="theme_customize" inherit_id="website.theme_customize">
+        <xpath expr="//div" position="replace">
+            <div>
+                <!-- Layout Options -->
+                <content id="theme_customize_content_layout" string="Layout" title="Choose your Layout">
+                    <more data-depends="">
+                        <list string="Body">
+                            <opt string="Full" data-xmlid="" data-icon="/website/static/src/img/options/layout-full.png"/>
+                            <opt id="option_layout_boxed" string="Boxed" data-xmlid="website.option_layout_boxed_variables" data-icon="/website/static/src/img/options/layout-boxed.png"/>
+                        </list>
+                        <list string="Background">
+                            <opt id="option_no_background" string="None" data-xmlid=""/>
+                            <opt string="Choose an image" data-xmlid="website.option_custom_body_image"/>
+                            <opt string="Choose a pattern" data-xmlid="website.option_custom_body_image, website.option_custom_body_pattern"/>
+                        </list>
+                    </more>
+                </content>
+                <content id="theme_customize_content_colors" string="Colors" title="Choose Theme Color">
+                    <!-- <opt data-xmlid="" data-color-palette="user" string="Choose your colors" id="cust_color_palate"/> -->
+                    <opt data-widget="color" data-color-type="theme" data-color="theme" string="Choose your colors" id="cust_color_palate"/>
+                </content>
+                <content id="theme_customize_Header" string="Headers" title="Choose your Header Style">
+                    <list id="theme_customize_option_header" string="Headers">
+                        <opt data-xmlid="" string='Default Header' data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.header_style_assets_1,theme_scita.option_header_1,theme_scita.option_header_cart" data-reload="/" data-icon="/theme_scita/static/src/img/snippet_icon/header-1.png"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_header_2,theme_scita.header_style_assets_2" data-icon="/theme_scita/static/src/img/snippet_icon/header-2.png" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_header_3,theme_scita.header_style_assets_3" data-icon="/theme_scita/static/src/img/snippet_icon/header-3.png" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_header_4,theme_scita.pricelist_add_icon,theme_scita.header_style_assets_4" data-icon="/theme_scita/static/src/img/snippet_icon/header-4.png" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_header_5,theme_scita.header_style_assets_5" data-icon="/theme_scita/static/src/img/snippet_icon/header-5.png" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_service_header_1,theme_scita.header_service_style_assets_6" data-icon="/theme_scita/static/src/img/snippet_icon/service_header.png" data-reload="/"/>
+
+                        
+                    </list>
+                </content>
+                <content id="theme_customize_footer" string="Footers" title="Choose your Footer Style">
+                    <list id="theme_customize_option_footer" string="Footers">
+                        <opt data-xmlid="" string="Default Footer" data-reload="/"/>
+
+                        <opt string=' ' data-xmlid="theme_scita.option_footer_1,theme_scita.theme_scita_footer_option_1" data-icon="/theme_scita/static/src/img/snippet_icon/Footer-1.png" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.option_footer_2,theme_scita.theme_scita_footer_option_2" data-icon="/theme_scita/static/src/img/snippet_icon/Footer-2.png" data-reload="/"/>
+                        <opt string=' ' data-reload="/" data-xmlid="theme_scita.option_footer_3,theme_scita.theme_scita_footer_option_3" data-icon="/theme_scita/static/src/img/snippet_icon/Footer-3.png"/>
+                        <opt string=' ' data-reload="/" data-xmlid="theme_scita.option_footer_4,theme_scita.theme_scita_footer_option_4" data-icon="/theme_scita/static/src/img/snippet_icon/Footer-4.png"/>
+                        <opt string=' ' data-reload="/" data-xmlid="theme_scita.option_footer_5,theme_scita.theme_scita_footer_option_5" data-icon="/theme_scita/static/src/img/snippet_icon/Footer-5.png"/>
+                    </list>
+                </content>
+                 <!-- Font options -->
+                <content id="theme_customize_content_fonts" string="Fonts" title="Choose your fonts">
+                    <list string="Title">
+                        <fontselection data-variable="headings-font-number"/>
+                    </list>
+                    <list string="Body">
+                        <fontselection data-variable="font-number"/>
+                    </list>
+                    <list string="Button">
+                        <fontselection data-variable="buttons-font-number"/>
+                    </list>
+                    <list string="Navbar">
+                        <fontselection data-variable="navbar-font-number"/>
+                    </list>
+                </content>
+                <!-- Menu options -->
+                <content id="theme_customize_content_navbar" string="Navbar" title="Choose your navbar">
+                    <list string="Main Layout">
+                        <checkbox><opt data-xmlid="website.affix_top_menu" data-reload="/"/></checkbox>
+                        <checkbox><opt data-xmlid="theme_scita.scita_portal_show_sign_in,theme_scita.scita_header_sign_in" data-reload="/"/></checkbox>
+                       <!--  <opt data-widget="input" data-unit="rem" data-variable="header-font-size" string="Font Size"/> -->
+                    </list>
+                    <list string="Logo">
+                        <checkbox><opt data-xmlid="theme_scita.scita_show_logo" data-reload="/"/></checkbox>
+                        <opt data-widget="input" data-unit="rem" data-variable="logo-height" string="Logo Height"/>
+                    </list>
+                </content>
+                <content id="theme_customize_buttons" string="Buttons" title="Choose your Button Style">
+                    <list id="theme_customize_option_button_style" string="Buttons">
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_1" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-1.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_2" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-2.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_3" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-3.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_4" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-4.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_5" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-5.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_6" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-6.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_7" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-7.gif" data-reload="/"/>
+                        <opt string=' ' data-xmlid="theme_scita.theme_scita_button_option_8" data-icon="/theme_scita/static/src/img/snippet_icon/button-style-8.gif" data-reload="/"/>
+                    </list>
+                </content>
+            </div>
+        </xpath>
+    </template>
+   
+</odoo>

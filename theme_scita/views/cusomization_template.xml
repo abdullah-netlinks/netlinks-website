@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- button style start -->
+    <template id="theme_scita_button_option_1" inherit_id="theme_scita.asset_frontend_theme_scita" name='Button 1'>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_1.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_2" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name='Button 2'>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_2.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_3" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_3.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_4" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_4.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_5" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_5.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_6" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_6.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_7" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_7.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_button_option_8" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[@href='/theme_scita/static/src/scss/comman.scss']" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/button/button_style_8.scss"/>
+        </xpath>
+    </template>
+
+    <!-- Button style template end -->
+    <!-- Footer style template start -->
+    <template id="theme_scita_footer_option_1" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name="">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/footer/footer_1.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_footer_option_2" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/footer/footer_2.scss"/>
+        </xpath>
+    </template>
+    <template id="theme_scita_footer_option_3" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/footer/footer_3.scss"/>
+        </xpath>
+    </template>
+
+    <template id="theme_scita_footer_option_4" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/footer/footer_4.scss"/>
+        </xpath>
+    </template>
+
+    <template id="theme_scita_footer_option_5" inherit_id="theme_scita.asset_frontend_theme_scita" active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_scita/static/src/scss/footer/footer_5.scss"/>
+        </xpath>
+    </template>
+     <!-- Footer style template End -->
+    <!-- Header option style template  -->
+    <template id="header_style_assets_1" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_1.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_scita/static/src/js/header.js"/>
+        </xpath>
+    </template>
+    <template id="header_style_assets_2" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_2.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_scita/static/src/js/header.js"/>
+        </xpath>
+    </template>
+    <template id="header_style_assets_3" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_3.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_scita/static/src/js/header.js"/>
+        </xpath>
+    </template>
+    <template id="header_style_assets_4" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_4.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_scita/static/src/js/header.js"/>
+        </xpath>
+    </template>
+    <template id="header_style_assets_5" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_5.scss" />
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_scita/static/src/js/header.js"/>
+        </xpath>
+    </template>
+    <template id="header_service_style_assets_6" inherit_id="theme_scita.asset_frontend_theme_scita"
+        active="False" name=''>
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/theme_scita/static/src/scss/header/header_service_1.scss" />
+        </xpath>
+    </template>
+    <!-- Header style template end -->
+    
+</odoo>

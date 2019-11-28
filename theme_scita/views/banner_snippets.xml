@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="sct_banner_1" name="Banner Type 1">
+        <div id="myCarousel" class="s_carousel s_carousel_default sct_banner_1 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-1-slide-1.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50 off sale</h2>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96"  style="background-image:url('/theme_scita/static/src/img/header-1-slide-1a.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12'>
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50 off sale</h2>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-1-slide-1b.jpg')"  data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12' >
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50 off sale</h2>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </template>
+    <template id="sct_banner_2" name="Banner Type 2">
+        <div id="myCarousel" class="s_carousel s_carousel_default sct_banner_2 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-2-slide-1.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title" >Summer infant 50% off sale</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-2-slide-1a.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50% off sale</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-2-slide-1b.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50% off sale</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </template>
+    <template id="sct_banner_3" name="Banner Type 3">
+        <div id="myCarousel" class="s_carousel s_carousel_default sct_banner_3 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-3-slide-1.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_right">
+                            <div class='col-md-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Shine &amp; sparkle</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Jewelleries for every Occasion</p>
+                                    </div>
+                                    <div class="sct_text_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg sct_right_img pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-3-slide-1a.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_left">
+                            <div class='col-md-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">fashion &amp; imitation</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Jewelleries for every Occasion</p>
+                                    </div>
+                                    <div class="sct_text_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-3-slide-1b.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_right">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">latest arrival</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Fashion jewellery</p>
+                                    </div>
+                                    <div class="sct_text_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </template>
+    <template id="sct_banner_4" name="Banner Type 4">
+        <div id="myCarousel" class="s_carousel s_carousel_default sct_banner_4 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-4-slide-1.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_black">
+                            <div class='col-md-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Fashion Summer Raffia Hat</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Classic and Trends summer accessories</p>
+                                    </div>
+                                    <div class="sct_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  dark_btn">View More</a>
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  light_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-4-slide-1a.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_white">
+                            <div class='col-md-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Clothing for your little ones</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>20% off all kidswear + free shipping</p>
+                                    </div>
+                                    <div class="sct_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  dark_btn">View More</a>
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  light_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-4-slide-1b.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content sct_content_white">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">New Spring Summer Fashion</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Lifestyle collection for glamour look</p>
+                                    </div>
+                                    <div class="sct_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  dark_btn">View More</a>
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn  light_btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </template>
+
+    <template id="sct_banner_5" name="Banner Type 5">
+        <div id="myCarousel" class="s_carousel s_carousel_default sct_banner_5 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt0 pb0" data-name="Slide">
+                        <div class="row content">
+                             <section class='col-lg-6 col-md-6 col-sm-6 sct-left-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-left-1.jpg')" >
+                                <div class="carousel-content sct_content_top">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Make your own<span>fashion trends</span></h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <ul>
+                                            <li><a href="#">Hats</a></li>
+                                            <li><a href="#">Watches</a></li>
+                                            <li><a href="#">Jackets</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class='col-lg-6 col-md-6 col-sm-6 sct-right-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-right-1.jpg')" >
+                                <div class="carousel-content sct_content_bottom">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Your<span>summer</span>collections</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <ul>
+                                            <li><a href="#">Tops</a></li>
+                                            <li><a href="#">Belt</a></li>
+                                            <li><a href="#">Skirts</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                </div>
+
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt0 pb0" data-name="Slide">
+                        <div class="row content sct_content_left">
+                            <section class='col-lg-6 col-md-6 col-sm-6 sct-left-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-left-1a.jpg')" >
+                                <div class="carousel-content sct_content_top">
+                                    <div class="sct_title" >
+                                        <h2 class="banner-title">Best<span>collection</span>fashion store</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <ul>
+                                            <li><a href="#">Purse</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="#">Watches</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class='col-lg-6 col-md-6 col-sm-6 sct-right-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-right-1a.jpg')" >
+                                <div class="carousel-content sct_content_bottom">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">New summer<span>arrival</span>70% OFF</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Best women’s editions</p>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt0 pb0" data-name="Slide">
+                        <div class="row content sct_content_left">
+                            <section class='col-lg-6 col-md-6 col-sm-6 sct-left-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-left-1b.jpg')" >
+                                <div class="carousel-content sct_content_top">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Stay<span>warm in</span>winter 2019</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Accessories you want</p>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class='col-lg-6 col-md-6 col-sm-6 sct-right-side' style="background-image:url('/theme_scita/static/src/img/header-5-slide-right-1b.jpg')" >
+                                <div class="carousel-content sct_content_bottom">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Look more<span>professional</span></h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p>Exclusive professional wear</p>
+                                    </div>
+                                    <div class="sct_border_btn">
+                                        <a href="/contactus" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+            </div>
+            <!-- Controls -->
+            <div class="arrow-controls">
+                <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                    <span class="carousel-control-prev-icon"/>
+                    <span class="sr-only">Previous</span>
+                </div>
+                <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                    <span class="carousel-control-next-icon"/>
+                    <span class="sr-only">Next</span>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Retial main banner snippet -->
+    <template id="retail_sct_banner_slider_1" name="Banner Type 6">
+        <div id="myCarousel" class="s_carousel s_carousel_default retail_sct_banner_1 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/retail/retail-banner-1.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12 sct_retail_slide'>
+                                <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h1 class="banner-title">Samsung Big Sale 20% off</h1>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-2-slide-1a.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12 sct_retail_slide'>
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50% off sale</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg pt96 pb96" style="background-image:url('/theme_scita/static/src/img/header-2-slide-1b.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12 sct_retail_slide'>
+                                <div class="carousel-content">
+                                    <div class="carousel-content">
+                                    <div class="sct_title">
+                                        <h2 class="banner-title">Summer infant 50% off sale</h2>
+                                    </div>
+                                    <div class="sct_sub_title">
+                                        <p><span>Hurry up!</span>Get them before they’re gone.</p>
+                                    </div>
+                                    <div class="sct_line_btn">
+                                        <a href="/contactus" class="btn btn-primary scita_cstm_btn ">Shop Now</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </template>
+    <!-- fashion_main_banner_slider -->
+    <template id="fashion_main_banner_slider" name="Banner Type 7">
+        <div id="myNumCarousel" class="s_carousel  myNumCarousel s_carousel_default fashion_main_banner_slider carousel  carousel-fade slide" data-interval="0">
+            <div class="carousel-inner"  style="background-image:url('/theme_scita/static/src/img/fashion/home-banner.jpg')">
+                <div class="carousel-item active oe_custom_bg oe_img_bg" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_slide_info">
+                                        <p class='sct_simple_text'>MAKE YOUR OWN</p>
+                                        <h2 class="banner-title">FASHION TRENDS</h2>
+                                        <div class="sct_btn">
+                                            <a href="/shop" class="btn">Shop Now</a>
+                                        </div>
+                                    </div>
+                                    <div class='slider_img_box'>
+                                        <img src="/theme_scita/static/src/img/fashion/home-banner-object.png" class="img img-fluid"/>
+                                    </div>
+                                    <div class='slide_no_content'>
+                                        <h3 class='simple_content'>ALL THE TRENDS YOU NEED THIS SEASON</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item oe_custom_bg oe_img_bg" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_slide_info">
+                                        <p class='sct_simple_text'>MAKE YOUR OWN</p>
+                                        <h2 class="banner-title">FASHION TRENDS</h2>
+                                        <div class="sct_btn">
+                                            <a href="/contactus" class="btn">Shop Now</a>
+                                        </div>
+                                    </div>
+                                    <div class='slider_img_box'>
+                                        <img src="/theme_scita/static/src/img/fashion/home-banner-object.png" class="img img-fluid"/>
+                                    </div>
+                                    <div class='slide_no_content'>
+                                        <h3 class='simple_content'>ALL THE TRENDS YOU NEED THIS SEASON</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item oe_custom_bg oe_img_bg" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-lg-12 col-md-12 col-sm-12' >
+                                <div class="carousel-content">
+                                    <div class="sct_slide_info">
+                                        <p class='sct_simple_text'>MAKE YOUR OWN</p>
+                                        <h2 class="banner-title">FASHION TRENDS</h2>
+                                        <div class="sct_btn">
+                                            <a href="/contactus" class="btn">Shop Now</a>
+                                        </div>
+                                    </div>
+                                    <div class='slider_img_box'>
+                                        <img src="/theme_scita/static/src/img/fashion/home-banner-object.png" class="img img-fluid"/>
+                                    </div>
+                                    <div class='slide_no_content'>
+                                        <h3 class='simple_content'>ALL THE TRENDS YOU NEED THIS SEASON</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class='carousel-control'>
+                <div class="container">
+                    <div class="carousel-control-prev" data-target="#myCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                        <span class="carousel-control-prev-icon"/>
+                        <span class="sr-only">Previous</span>
+                    </div>
+                    <div class="num"></div>
+                    <div class="carousel-control-next" data-target="#myCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                        <span class="carousel-control-next-icon"/>
+                        <span class="sr-only">Next</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <!-- IT Promotional Services Banner -->
+    <template id="it_main_banner" name="Banner Type 8">
+        <section class="it_main_banner"  style="background-image: url(/theme_scita/static/src/img/it/home-banner_1.jpg);">
+            <div class='container'>
+                <div class="row">
+                    <div class='col-md-12 sct_main_banner'>
+                        <span class='sct_uline_text'>We Know Everything About</span>
+                        <h2 class='sct_title'>We create digital experiences.</h2>
+                        <p class='sct_simple_text'>At its core, every brand has something special to reveal—something that inspires people. At its core, every brand</p>
+                        <div class='sct_cst_btn'>
+                            <a href="/shop" class="btn btn-primary scita_cstm_btn ">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Service industry start -->
+    <template id="helth_banner_1" name="Banner Type 9">
+        <div id="myCarousel" class="s_carousel s_carousel_default helth_banner_1 carousel slide" data-interval="10000">
+            <div class="carousel-inner">
+                <!-- #01 -->
+                <div class="carousel-item active oe_custom_bg oe_img_bg" style="background-image:url('/theme_scita/static/src/img/health/health-home-banner.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="helth_banner_content">
+                                        <h2 class="banner-title">Your Doctor</h2>
+                                        <h3 class='sub_title_banner'>Your Treatment</h3>
+                                        <p class='sct_simple_text'>Vestibulum facilisis rhoncus tempor. Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Etiam sit amet libero consequat, convallis odio ac, vestibulum urnalibero ornare nec.</p>
+                                    </div>
+                                    <div class="sct_helth_btn">
+                                        <a href="/contactus" class="btn btn_border btn-primary scita_cstm_btn ">Make an appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #02 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg" style="background-image:url('/theme_scita/static/src/img/health/health-home-banner.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="helth_banner_content">
+                                        <h2 class="banner-title">Your Doctor</h2>
+                                        <h3 class='sub_title_banner'>Your Treatment</h3>
+                                        <p class='sct_simple_text'>Vestibulum facilisis rhoncus tempor. Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Etiam sit amet libero consequat, convallis odio ac, vestibulum urnalibero ornare nec.</p>
+                                    </div>
+                                    <div class="sct_helth_btn">
+                                        <a href="/contactus" class="btn btn_border btn-primary scita_cstm_btn ">Make an appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #03 -->
+                <div class="carousel-item oe_custom_bg oe_img_bg" style="background-image:url('/theme_scita/static/src/img/health/health-home-banner.jpg')" data-name="Slide">
+                    <div class="container">
+                        <div class="row content">
+                            <div class='col-md-12'>
+                                <div class="carousel-content">
+                                    <div class="helth_banner_content">
+                                        <h2 class="banner-title">Your Doctor</h2>
+                                        <h3 class='sub_title_banner'>Your Treatment</h3>
+                                        <p class='sct_simple_text'>Vestibulum facilisis rhoncus tempor. Duis non ipsum volutpat, rhoncus nisi sed, pulvinar ex. Etiam sit amet libero consequat, convallis odio ac, vestibulum urnalibero ornare nec.</p>
+                                    </div>
+                                    <div class="sct_helth_btn">
+                                        <a href="/contactus" class="btn btn_border btn-primary scita_cstm_btn ">Make an appointment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Indicators -->
+            <div class="container cstm_pager">
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+            </div>
+        </div>
+    </template>
+</odoo>

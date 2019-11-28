@@ -1,0 +1,539 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <template active="False" id="option_footer_1" inherit_id="website.footer_custom" name=' '>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="before">
+            <div class="footer-content sct-footer-option-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 sct-static-link">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Sliders</a></li>
+                                <li><a href="#">Headers</a></li>
+                                <li><a href="#">Page Features</a></li>
+                                <li><a href="#">Other Features</a></li>
+                                <li><a href="#">Elements</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Shop</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 sct-foot-logo" t-if="website.footer_logo">
+                            <div class="timer_counter_div"></div>
+                            <a href="/">
+                                <span t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" t-field="website.footer_logo" t-options="{'widget': 'image'}"/>
+                            </a>
+                        </div>
+                        <div class="col-12 sct-fot-address">
+                            <ul>
+                                <li>
+                                    <i>
+                                        <span class="fa fa-map-marker"/>
+                                    </i>
+                                    <span t-if="res_company.street"  t-field="res_company.street"/><span t-if="res_company.street" class='comma'>,</span>
+                                    <span t-if="res_company.street2"  t-field="res_company.street2"/><span t-if="res_company.street2" class='comma'>,</span>
+                                    <span t-if="res_company.city"  t-field="res_company.city"/><span t-if="res_company.city" class='comma'> -</span> 
+                                    <span t-if="res_company.zip"  t-field="res_company.zip"/><span t-if="res_company.zip" class='comma'>,</span>
+                                    <span t-if="res_company.state_id and res_company.state_id.name"  t-field="res_company.state_id.name"/><span t-if="res_company.state_id.name" class='comma'>,</span>
+                                    <span t-if="res_company.country_id and res_company.country_id.name"  t-field="res_company.country_id.name"/>
+                                </li>
+                                <li t-if="res_company.phone">
+                                    <i>
+                                        <span class="fa fa-phone"/>
+                                    </i><t t-esc="res_company.phone"/>
+                                </li>
+                                <li t-if="res_company.email">
+                                    <i>
+                                        <span class="fa fa-envelope"/>
+                                    </i>
+                                    <t t-esc="res_company.email"/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 sct-scocial-icon-footer">
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                <i class="fa  fa-facebook"/>
+                            </a>
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                <i class="fa  fa-twitter"/>
+                            </a>
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                <i class="fa fa-linkedin"/>
+                            </a>
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                <i class="fa fa-youtube-play"/>
+                            </a>
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_github" t-if="website.social_github">
+                                <i class="fa  fa-github"/>
+                            </a>
+                            <a class="btn btn-sm btn-link" t-att-href="website.social_instagram" t-if="website.social_instagram">
+                                <i class="fa  fa-instagram"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row sct-fot-belt justify-content-between">
+                        <div class="sct-copyrig">
+                            Copyright © 2019 Scita All Rights Reserved.
+                        </div>
+                        <div class="sct-payment-icons">
+                            <t t-as="icon" t-foreach="request.website.theme_scita_payment_icons()">
+                                <span t-field="icon.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template active="False" id="option_footer_2" inherit_id="website.footer_custom" name=''>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="before">
+            <div class="footer-content sct-footer-option-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-address">
+                            <div class="sct-footer-logo" t-if="website.footer_logo">
+                                <a href="/">
+                                    <span t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" t-field="website.footer_logo" t-options="{'widget': 'image'}"/>
+                                </a>
+                                <div class="timer_counter_div"></div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <h4>Address :</h4>
+                                    <span t-if="res_company.street and res_company.street"  t-field="res_company.street"/><span t-if="res_company.street" class='comma'>,</span>
+                                    <span t-if="res_company.street2"  t-field="res_company.street2"/><span t-if="res_company.street2" class='comma'>,</span>
+                                    <span t-if="res_company.city"  t-field="res_company.city"/><span t-if="res_company.city" class='comma'> -</span>
+                                    <span t-if="res_company.zip"  t-field="res_company.zip"/><span t-if="res_company.zip" class='comma'>,</span>
+                                    <span t-if="res_company.state_id and res_company.state_id.name"  t-field="res_company.state_id.name"/><span t-if="res_company.state_id.name" class='comma'>,</span>
+                                    <span t-if="res_company.country_id and res_company.country_id.code"  t-field="res_company.country_id.name"/>
+                                </li>
+                                <li t-if="res_company.phone">
+                                    <h4>Phone :</h4>
+                                    <span t-esc="res_company.phone"/>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h4>OUR SERVICES</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Company Information</a>
+                                </li>
+                                <li>
+                                    <a href="#">Conditions of Sales</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Returns and refunds</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dispute Resolution</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h4>Others</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Fast Shipping</a>
+                                </li>
+                                <li>
+                                    <a href="#">Paypal/Secure Payment</a>
+                                </li>
+                                <li>
+                                    <a href="#">30 Days Return Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Business Development</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-social">
+                            <div class="sct-payment-icons" t-if='len(request.website.theme_scita_payment_icons()) &gt; 1'>
+                                <h4 >PAYMENT OPTIONS</h4>
+                                <t t-as="icon" t-foreach="request.website.theme_scita_payment_icons()">
+                                    <span t-field="icon.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                </t>
+                            </div>
+                            <div class="sct-scocial-icon-footer">
+                            <h4>CONNECT WITH US</h4>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                    <i class="fa  fa-facebook"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                    <i class="fa  fa-twitter"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                    <i class="fa fa-linkedin"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                    <i class="fa fa-youtube-play"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_github" t-if="website.social_github">
+                                    <i class="fa  fa-github"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_instagram" t-if="website.social_instagram">
+                                    <i class="fa  fa-instagram"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sct-fot-belt">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <p>Copyright © 2019 Scita All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template active="False" id="option_footer_3" inherit_id="website.footer_custom" name=''>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="before">
+            <div class="footer-content sct-footer-option-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-address">
+                            <div class="sct-footer-logo" t-if="website.footer_logo">
+                                <a href="/">
+                                    <span t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" t-field="website.footer_logo" t-options="{'widget': 'image'}"/>
+                                </a>
+                                <div class="timer_counter_div"></div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <i>
+                                        <span class="fa fa-map-marker"/>
+                                    </i>
+                                    <span t-if="res_company.street and res_company.street"  t-field="res_company.street"/><span t-if="res_company.street" class='comma'>,</span>
+                                    <span t-if="res_company.street2"  t-field="res_company.street2"/><span t-if="res_company.street2" class='comma'>,</span>
+                                    <span t-if="res_company.city"  t-field="res_company.city"/><span t-if="res_company.city" class='comma'> -</span>
+                                    <span t-if="res_company.zip"  t-field="res_company.zip"/><span t-if="res_company.zip" class='comma'>,</span>
+                                    <span t-if="res_company.state_id and res_company.state_id.name"  t-field="res_company.state_id.name"/><span t-if="res_company.state_id.name" class='comma'>,</span>
+                                    <span t-if="res_company.country_id and res_company.country_id.code"  t-field="res_company.country_id.name"/>
+                                </li>
+                                <li t-if="res_company.phone">
+                                    <i>
+                                        <span class="fa fa-phone"/>
+                                    </i><t t-esc="res_company.phone"/>
+                                </li>
+                                <li t-if="res_company.email">
+                                    <i>
+                                        <span class="fa fa-envelope"/>
+                                    </i>
+                                    <t t-esc="res_company.email"/>
+                                </li>
+                            </ul>
+                            <div class="sct-scocial-icon-footer">
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                    <i class="fa  fa-facebook"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                    <i class="fa  fa-twitter"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                    <i class="fa fa-linkedin"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                    <i class="fa fa-youtube-play"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_github" t-if="website.social_github">
+                                    <i class="fa  fa-github"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_instagram" t-if="website.social_instagram">
+                                    <i class="fa  fa-instagram"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-about">
+                            <h4>ABOUT US</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500sLorem.</p>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-service-link">
+                            <h4>OUR SERVICES</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Company Information</a>
+                                </li>
+                                <li>
+                                    <a href="#">Conditions of Sales</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Returns and refunds</a>
+                                </li>
+                                <li>
+                                    <a href="#">Dispute Resolution</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h4>USERFULL LINK</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Fast Shipping</a>
+                                </li>
+                                <li>
+                                    <a href="#">Paypal/Secure Payment</a>
+                                </li>
+                                <li>
+                                    <a href="#">30 Days Return Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Business Development</a>
+                                </li>
+                                <li>
+                                    <a href="#">Others</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="sct-fot-belt">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="sct-copyrig">
+                                Copyright © 2019 Scita All Rights Reserved.
+                            </div>
+                            <div class="sct-payment-icons">
+                                <t t-as="icon" t-foreach="request.website.theme_scita_payment_icons()">
+                                    <span t-field="icon.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <template active="False" id="option_footer_4" inherit_id="website.footer_custom" name=''>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="before">
+            <div class="footer-content sct-footer-option-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h4>INFORMATION</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Shop</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h4>OUR SERVICES</h4>
+                            <ul>
+                                <li>
+                                    <a href="#">Terms and Conditions</a>
+                                </li>
+                                <li>
+                                    <a href="#">Delivery Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#">Order Tracking</a>
+                                </li>
+                                <li>
+                                    <a href="#">Returns Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Privacy Policy</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-address">
+                            <h4>CUSTOMER</h4>
+                            <ul>
+                                <li>
+                                    <i>
+                                    <span class="fa fa-clock-o"/>
+                                </i>Monday - Friday: 10:00 - 19:00</li>
+                                <li>
+                                    <i>
+                                        <span class="fa fa-map-marker"/>
+                                    </i>
+                                    <span t-if="res_company.street and res_company.street"  t-field="res_company.street"/><span t-if="res_company.street" class='comma'>,</span>
+                                    <span t-if="res_company.street2"  t-field="res_company.street2"/><span t-if="res_company.street2" class='comma'>,</span>
+                                    <span t-if="res_company.city"  t-field="res_company.city"/><span t-if="res_company.city" class='comma'> -</span>
+                                    <span t-if="res_company.zip"  t-field="res_company.zip"/><span t-if="res_company.zip" class='comma'>,</span>
+                                    <span t-if="res_company.state_id and res_company.state_id.name"  t-field="res_company.state_id.name"/><span t-if="res_company.state_id.name" class='comma'>,</span>
+                                    <span t-if="res_company.country_id and res_company.country_id.code"  t-field="res_company.country_id.name"/>
+                                </li>
+                                <li t-if="res_company.phone">
+                                    <i>
+                                        <span class="fa fa-phone"/>
+                                    </i><t t-esc="res_company.phone"/>
+                                </li>
+                                <li t-if="res_company.email">
+                                    <i>
+                                        <span class="fa fa-envelope"/>
+                                    </i>
+                                    <t t-esc="res_company.email"/>
+                                </li>
+                            </ul>
+                            <div class="timer_counter_div"></div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12 sct-fot-social">
+                            <div class="sct-payment-icons" t-if='len(request.website.theme_scita_payment_icons()) &gt; 1'>
+                                <h4 >PAYMENT OPTIONS</h4>
+                                <t t-as="icon" t-foreach="request.website.theme_scita_payment_icons()">                                    
+                                    <span t-field="icon.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                </t>
+                            </div>
+                            <div class="sct-scocial-icon-footer">
+                            <h4>CONNECT WITH US</h4>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                    <i class="fa  fa-facebook"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                    <i class="fa  fa-twitter"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                    <i class="fa fa-linkedin"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                    <i class="fa fa-youtube-play"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_github" t-if="website.social_github">
+                                    <i class="fa  fa-github"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_instagram" t-if="website.social_instagram">
+                                    <i class="fa  fa-instagram"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sct-fot-belt">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <p>Copyright © 2019 Scita All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+
+    <template active="False" id="option_footer_5" inherit_id="website.footer_custom" name=''>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="attributes">
+            <attribute name="style">display:none;</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_structure', 'oe_structure_solo')]" position="before">
+            <div class="footer-content sct-footer-option-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="sct-footer-logo" t-if="website.footer_logo">
+                                <a href="/">
+                                    <span t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" t-field="website.footer_logo" t-options="{'widget': 'image'}"/>
+                                </a>
+                                <div class="timer_counter_div"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sct-middle-row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <ul>
+                                <li><a href="#">Terms and Conditions</a></li>
+                                <li><a href="#">Delivery Terms</a></li>
+                                <li><a href="#">Order Tracking</a></li>
+                                <li><a href="#">Returns Policy</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 sct-social-pty">
+                            <div class="sct-scocial-icon-footer">
+                            
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_facebook" t-if="website.social_facebook">
+                                    <i class="fa  fa-facebook"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_twitter" t-if="website.social_twitter">
+                                    <i class="fa  fa-twitter"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_linkedin" t-if="website.social_linkedin">
+                                    <i class="fa fa-linkedin"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_youtube" t-if="website.social_youtube">
+                                    <i class="fa fa-youtube-play"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_github" t-if="website.social_github">
+                                    <i class="fa  fa-github"/>
+                                </a>
+                                <a class="btn btn-sm btn-link" t-att-href="website.social_instagram" t-if="website.social_instagram">
+                                    <i class="fa  fa-instagram"/>
+                                </a>
+                            </div>
+                            <div class="sct-payment-icons">
+                                <t t-as="icon" t-foreach="request.website.theme_scita_payment_icons()">
+                                    <span t-field="icon.image" t-options="{&quot;widget&quot;: &quot;image&quot;, &quot;alt-field&quot;: &quot;name&quot;}"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 sct-static-link">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Sliders</a></li>
+                                <li><a href="#">Headers</a></li>
+                                <li><a href="#">Page Features</a></li>
+                                <li><a href="#">Other Features</a></li>
+                                <li><a href="#">Elements</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Shop</a></li>
+                            </ul>
+                            <p>Copyright © 2019 Scita All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
